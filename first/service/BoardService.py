@@ -6,7 +6,19 @@ class BoardService:
     def create_board(name):
         BoardRepository.create_board(name)
 
+
     @staticmethod
     def get_all_boards():
-        posts = BoardRepository.get_all_boards()
-        return posts
+        boards = BoardRepository.get_all_boards()
+        return boards
+
+
+    @staticmethod
+    def get_board(id):
+        board = BoardRepository.get_board(id)
+        return board
+
+
+    @staticmethod
+    def edit_board(id, name):
+        BoardRepository.edit_board(id, name)

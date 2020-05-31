@@ -28,6 +28,28 @@ class MessageRepository:
                 ret[row[0]] = {
                     'name': row[1],
                     'text': row[2],
-                    'tread_id': row[3],
+                    'tread_id': row[3]
                 }
+        return ret
+
+    @staticmethod
+    def get_message(id):
+        ret = {}
+        with db.cursor() as cursor:
+            db.autocommit = True
+            cursor.execute('SELECT * FROM message WHERE message.id = %s;', id)
+            for row in cursor:
+                ret[row[0]] = {
+                    'name': row[1],
+                    'text': row[2],
+                    'tread_id': row[3]
+                }
+        return ret
+
+    @staticmethod
+    def delete_message(id):
+        ret = {}
+        with db.cursor() as cursor:
+            db.autocommit = True
+            cursor.execute('DELETE FROM message WHERE message.id = %s;', id)
         return ret

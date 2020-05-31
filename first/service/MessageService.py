@@ -12,3 +12,15 @@ class MessageService:
         messages = MessageRepository.get_messages_by_tread(tread_id)
         return messages
 
+
+    @staticmethod
+    def get_message(id):
+        message = MessageRepository.get_message(id)
+        return message
+
+
+    @staticmethod
+    def delete_message(id):
+        MessageRepository.delete_message(id)
+
+

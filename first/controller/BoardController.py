@@ -30,3 +30,19 @@ def get_all_boards():
         "all_boards": BoardService.get_all_boards()
     }), 200
 
+
+@board_controller.route("/get_board/<id>", methods=['GET'])
+def get_board(id):
+    return jsonify({
+        "board": BoardService.get_board(id)
+    }), 200
+
+
+@board_controller.route("/edit_board/<id>", methods=['PUT'])
+def edit_board(id):
+    name = request.json.get("name")
+    BoardService.edit_board(id, name)
+    return jsonify({
+        "msg": "Board edited"
+    }), 201
+
