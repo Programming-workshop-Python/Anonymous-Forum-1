@@ -16,3 +16,18 @@ class MessageRepository:
             )
             cursor.execute(insert)
         print("create")
+
+
+    @staticmethod
+    def get_messages_by_board(tread_id):
+        ret = {}
+        with db.cursor() as cursor:
+            db.autocommit = True
+            cursor.execute('SELECT * FROM message WHERE message.tread_id = %s;', tread_id)
+            for row in cursor:
+                ret[row[0]] = {
+                    'name': row[1],
+                    'text': row[2],
+                    'tread_id': row[3],
+                }
+        return ret

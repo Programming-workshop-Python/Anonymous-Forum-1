@@ -26,5 +26,12 @@ def create_post(tread_id):
     }), 201
 
 
+@message_controller.route("/get_messages_on_tread/<tread_id>", methods=['GET'])
+def get_messages_on_tread(tread_id):
+    return jsonify({
+        "messages": MessageService.get_messages_by_tread(tread_id)
+    }), 200
+
+
 
 

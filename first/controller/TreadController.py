@@ -24,3 +24,10 @@ def create_post(board_id):
     }), 201
 
 
+@tread_controller.route("/get_treads_on_board/<board_id>", methods=['GET'])
+def get_treads_on_board(board_id):
+    return jsonify({
+        "treads": TreadService.get_tread_by_board(board_id)
+    }), 200
+
+

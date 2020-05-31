@@ -5,3 +5,10 @@ class MessageService:
     @staticmethod
     def create_message(author, text, tread_id):
         MessageRepository.create_message(author, text, tread_id)
+
+
+    @staticmethod
+    def get_messages_by_board(tread_id):
+        messages = MessageRepository.get_messages_by_board(tread_id)
+        return messages
+
