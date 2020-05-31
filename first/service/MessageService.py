@@ -8,7 +8,7 @@ class MessageService:
 
 
     @staticmethod
-    def get_messages_by_board(tread_id):
-        messages = MessageRepository.get_messages_by_board(tread_id)
+    def get_messages_by_tread(tread_id):
+        messages = MessageRepository.get_messages_by_tread(tread_id)
         return messages
 

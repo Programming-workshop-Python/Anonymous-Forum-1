@@ -11,7 +11,7 @@ class MessageRepository:
                 (author, text, tread_id)
             ]
             insert = sql.SQL(
-                'INSERT INTO message (name) VALUES {}').format(
+                'INSERT INTO message (author, text, tread_id) VALUES {}').format(
                 sql.SQL(',').join(map(sql.Literal, values))
             )
             cursor.execute(insert)
@@ -19,7 +19,7 @@ class MessageRepository:
 
 
     @staticmethod
-    def get_messages_by_board(tread_id):
+    def get_messages_by_tread(tread_id):
         ret = {}
         with db.cursor() as cursor:
             db.autocommit = True

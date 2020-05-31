@@ -11,7 +11,7 @@ class BoardRepository:
                 (name)
             ]
             insert = sql.SQL(
-                'INSERT INTO board (name) VALUES {}').format(
+                'INSERT INTO board (name) VALUES ({})').format(
                 sql.SQL(',').join(map(sql.Literal, values))
             )
             cursor.execute(insert)

@@ -11,7 +11,7 @@ class TreadRepository:
                 (name, board_id)
             ]
             insert = sql.SQL(
-                'INSERT INTO tread (name) VALUES {}').format(
+                'INSERT INTO tread (name, board_id) VALUES {}').format(
                 sql.SQL(',').join(map(sql.Literal, values))
             )
             cursor.execute(insert)
